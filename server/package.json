@@ -1,0 +1,17 @@
+{
+  "name": "quickurl-api",
+  "version": "1.0.0",
+  "description": "quick url service api",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js"
+  },
+  "author": "dimpram",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^6.0.12",
+    "nanoid": "^3.1.30",
+    "nodemon": "^2.0.15"
+  }
+}
