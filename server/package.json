@@ -4,7 +4,7 @@
   "description": "quick url service api",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon index.js"
+    "dev": "nodemon app.js"
   },
   "author": "dimpram",
   "license": "ISC",
