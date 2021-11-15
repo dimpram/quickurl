@@ -15,3 +15,5 @@
 ### Notes
 
 Set the environment variable NODE_ENV to production, to run the app in production mode.
+
+res.status(500).json("server error")
