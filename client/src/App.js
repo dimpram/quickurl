@@ -16,6 +16,13 @@ const Headline = styled.h1`
   font-size: 2rem;
   color: #9DBEB9;
   margin: 5rem 0;
+  
+  @media screen and (min-width: 760px) {
+    margin-left: 3rem;
+    flex-direction: row;
+    justify-content: space-between;
+    order: 2;
+  }
 `
 const SubHeadline = styled.h1`
   margin-top: 1.2rem;
@@ -28,6 +35,17 @@ const Overlay = styled.div`
   border-radius: 0 0 30px 30px;
   background-color: ${(props) => props.color};
   margin-bottom: 3rem;
+`
+
+const Grid = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  @media screen and (min-width: 760px) {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 4rem 0;
+  }
 `
 
 const App = () => {
@@ -44,10 +62,12 @@ const App = () => {
         <Container>
           <Dropdown isOpen={isOpen} toggle={toggleDropdown} />
           <NavigationBar toggle={toggleDropdown} />
-          <Headline>A URL shortening service that makes your life easier
-            <SubHeadline>Quick! Give it a try!</SubHeadline>
-          </Headline>
-          <Panel />
+          <Grid>
+            <Headline>A URL shortening service that makes your life easier
+              <SubHeadline>Quick! Give it a try!</SubHeadline>
+            </Headline>
+            <Panel />
+          </Grid>
         </Container>
       </Section>
       <Section color="#ffffff">
