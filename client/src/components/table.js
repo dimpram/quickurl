@@ -51,7 +51,7 @@ const TableBody = ({ tableData }) => {
     return (
       <tr key={index}>
         <td>{row.url}</td>
-        <td>{process.env.REACT_APP_HOST + "/" + row.shortId}</td>
+        <td>{process.env.REACT_APP_API + "/" + row.shortId}</td>
         <td>{row.visits}</td>
         <td>{row.attempts}</td>
       </tr>
