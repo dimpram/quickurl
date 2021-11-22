@@ -10,7 +10,7 @@ const quickUrlSchema = new mongoose.Schema({
     shortId: {
         type: String,
         required: true,
-        default: nanoid.nanoid(10)
+        default: () => nanoid.nanoid(10)
     },
     visits: {
         type: Number,
