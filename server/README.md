@@ -1,16 +1,21 @@
-# TODOS
+# Quickurl backend
+
+## Getting started
+
+Create an `.env` file and add the following variables (the values are example):
+
+```
+MONGO_DB_URI=mongodb://localhost:27017/quickurl
+PORT=5000
+HOST=http://localhost
+```
+
+## TODOS
 
 - Add environment variables [ ]
 - Refactor configs [ ]
 - Add error handling [ ]
 
-
-## /shorten steps
-1. Receive a new URL [x]
-2. Check if it is a valid URL [x]
-3. Check if it already exists in the database [x]
-4. If it exists, increment the attampts field else if it doesn't exist, create a new ShortURL instance and add it to the database [x]
-5. Return the new ShortURL document is json [x]
 
 ### Notes
 

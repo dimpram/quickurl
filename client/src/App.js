@@ -57,6 +57,7 @@ const App = () => {
     setIsOpen(!isOpen)
   }
 
+
   return (
     <>
       <Section color="#194350" name="home">
