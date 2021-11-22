@@ -1,3 +1,5 @@
+import React, { useState, useEffect } from "react";
+import axios from "axios"
 import styled from "styled-components";
 
 const TableContainer = styled.div`
@@ -31,34 +33,55 @@ const TableContainer = styled.div`
     background-color: #ffffff;
   }
 `
-const Table = () => {
-  return(
-    <TableContainer>
-      <table>
-        <thead>
-          <tr>
-            <th>URL</th>
-            <th>ShortURL</th>
-            <th>Visits</th>
-            <th>Attempts</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>https://google.com</td>
-            <td>https://google.com</td>
-            <td>5</td>
-            <td>1</td>
-          </tr>
-          <tr>
-            <td>https://google.com</td>
-            <td>https://google.com</td>
-            <td>5</td>
-            <td>1</td>
-          </tr>
-        </tbody>
-      </table>
-    </TableContainer>
+const TableHeader = () => {
+  return (
+    <thead>
+      <tr>
+        <th>URL</th>
+        <th>ShortURL</th>
+        <th>Visits</th>
+        <th>Attempts</th>
+      </tr>
+    </thead>
   )
+}
+
+const TableBody = ({ tableData }) => {
+  const rows = tableData.map((row, index) => {
+    return (
+      <tr key={index}>
+        <td>{row.url}</td>
+        <td>{"http://quickurl.live/" + row.shortId}</td>
+        <td>{row.visits}</td>
+        <td>{row.attempts}</td>
+      </tr>
+    )
+  })
+
+  return <tbody>{rows}</tbody>
+}
+
+const Table = () => {
+
+  // State hook for updating the table
+  const [tableData, setTableData] = useState([])
+
+  // Request quickurl data
+  useEffect(() => {
+    axios.get("http://localhost:5000/api/fetchAll")
+      .then((response) => {
+        setTableData(response.data)
+      })
+      .catch((err) => console.error(err)) 
+  }, [])
+
+return (
+  <TableContainer>
+    <table>
+      <TableHeader />
+      <TableBody tableData={tableData} />
+    </table>
+  </TableContainer>
+)
 }
 export default Table;
