@@ -40,6 +40,7 @@ const Overlay = styled.div`
 const Grid = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
 
   @media screen and (min-width: 760px) {
     flex-direction: row;
@@ -58,7 +59,7 @@ const App = () => {
 
   return (
     <>
-      <Section color="#194350">
+      <Section color="#194350" name="home">
         <Container>
           <Dropdown isOpen={isOpen} toggle={toggleDropdown} />
           <NavigationBar toggle={toggleDropdown} />
@@ -70,7 +71,7 @@ const App = () => {
           </Grid>
         </Container>
       </Section>
-      <Section color="#ffffff">
+      <Section color="#ffffff" name="about">
         <Overlay color="#194350" />
         <Container>
           <Title>About</Title>

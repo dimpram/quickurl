@@ -70,8 +70,8 @@ const Dropdown = ({ isOpen, toggle }) => {
           <CloseIcon />
         </Icon>
         <List>
-          <Item to="home">Home</Item>
-          <Item to="about">About</Item>
+          <Item to="home" spy={true} duration={500} smooth={true} onClick={toggle}>Home</Item>
+          <Item to="about" spy={true} duration={500} smooth={true} onClick={toggle}>About</Item>
         </List>
       </Panel>
     </Container>

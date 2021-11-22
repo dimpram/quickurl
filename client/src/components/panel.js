@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { FaLink, FaRocket, FaCopy} from "react-icons/fa"
 
 const Form = styled.form`
-  margin: 4rem 0 0;
+  margin: 1.8rem 0 0;
   padding: 1rem 1.4rem 1.4rem;
   background-color: #9DBEB9;
   border-radius: 20px;

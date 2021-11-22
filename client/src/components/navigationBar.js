@@ -52,11 +52,13 @@ const Item = styled(Link)`
 	display: flex;
 	align-items: center;
 	text-decoration: none;
-	padding: 0 1rem;
+  margin-left: 3rem;
+	padding: 0 0 0.4rem;
 	height: 100%;
 	cursor: pointer;
+	border-bottom: 3px solid transparent;
 
-	&:active {
+	&:hover {
 		border-bottom: 3px solid #fff;
 	}
 `
@@ -69,8 +71,8 @@ const NavigationBar = ({ toggle }) => {
 				<FaBars />
 			</Hamburger>
 			<List>
-				<Item>Home</Item>
-				<Item>About</Item>
+				<Item to="home" spy={true} duration={500} smooth={true}>Home</Item>
+				<Item to="about" spy={true} duration={500} smooth={true}>About</Item>
 			</List>
 		</Nav>
 	)
