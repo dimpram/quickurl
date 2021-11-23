@@ -88,7 +88,7 @@ const CopyIcon = styled(FaCopy)`
 `
 
 const Panel = () => {
-  
+
   const [urlValue, setUrlValue] = useState('')            // Hook for managing user input
   const [quickurlValue, setQuickurlValue] = useState('')  // Hook for displaying the user generated quickurl
 
@@ -97,13 +97,18 @@ const Panel = () => {
   }
 
   const handleSubmit = (event) => {
-    axios.post(process.env.REACT_APP_API + '/api/shorten', { 
+    axios.post(process.env.REACT_APP_API + '/api/shorten', {
       url: urlValue
     })
-    .then((response) => {
-      setQuickurlValue(process.env.REACT_APP_API + "/" + response.data.shortId)
-    })
-    .catch((err) => alert(err))
+      .then((response) => {
+        setQuickurlValue(process.env.REACT_APP_API + "/" + response.data.shortId)
+      })
+      .catch((err) => {
+        if (err.response) {
+          // Request made and server responded
+          alert(err.response.data)
+        } 
+      })
     event.preventDefault()
   }
 

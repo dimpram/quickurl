@@ -72,7 +72,12 @@ const Table = () => {
       .then((response) => {
         setTableData(response.data)
       })
-      .catch((err) => console.error(err)) 
+      .catch((err) => {
+        if (err.response) {
+          // Request made and server responded
+          alert(err.response.data)
+        } 
+      }) 
   }, [])
 
 return (
