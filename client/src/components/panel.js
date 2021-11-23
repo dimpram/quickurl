@@ -116,7 +116,7 @@ const Panel = () => {
   return (
     <Form onSubmit={handleSubmit}>
       <Label><LinkIcon />Your URL</Label>
-      <Input type="url" value={urlValue} onChange={handleChange} placeholder="https://www.example.com/an-example-page" pattern="http*://.*" required />
+      <Input type="url" value={urlValue} onChange={handleChange} placeholder="https://www.example.com/an-example-page" pattern="https?://.*" required />
       <Label><RocketIcon />Your short URL</Label>
       <Input type="url" value={quickurlValue} placeholder={process.env.REACT_APP_API + "/xxxxxx"} readOnly={true} />
       <ButtonContainer>
