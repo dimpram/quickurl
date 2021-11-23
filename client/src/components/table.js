@@ -51,7 +51,7 @@ const TableBody = ({ tableData }) => {
     return (
       <tr key={index}>
         <td>{row.url}</td>
-        <td>{process.env.REACT_APP_API + "/" + row.shortId}</td>
+        <td>{"https://quickurl.live/r/" + row.shortId}</td>
         <td>{row.visits}</td>
         <td>{row.attempts}</td>
       </tr>
@@ -68,7 +68,7 @@ const Table = () => {
 
   // Request quickurl data
   useEffect(() => {
-    axios.get(process.env.REACT_APP_API + "/api/fetchAll")
+    axios.get("https://quickurl.live/api/fetchAll")
       .then((response) => {
         setTableData(response.data)
       })
