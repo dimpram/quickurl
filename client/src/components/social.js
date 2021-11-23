@@ -3,21 +3,31 @@ import styled from "styled-components";
 
 const Container = styled.div`
   display: flex;
-  flex-direction: row;
   justify-content: center;
   align-items: center;
   color: #ffffff;
   padding-bottom: 2rem;
 
   p {
-    margin-right: 1rem;
+    margin-right: 0.5rem;
+  }
+`
+
+const Link = styled.a`
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #fff;
+
+  &:hover {
+    text-decoration: underline;
   }
 `
 
 const Social = () => {
   return (
     <Container>
-      <p>Are you a developer?</p><FaGithub />
+      <Link href="https://github.com/dimpram/quickurl"><p>Source code available on</p><FaGithub /></Link>
     </Container>
   )
 }
