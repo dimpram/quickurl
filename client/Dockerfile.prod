@@ -5,9 +5,7 @@ COPY ./package.json ./
 RUN npm install
 COPY . . 
 ARG BASE_URL
-ENV REACT_APP_BASE_URL={BASE_URL}
-### Fix permissions error when creating node_modules folders
-RUN chmod -R 777 /usr/src/app/node_modules
+ENV REACT_APP_BASE_URL=${BASE_URL}
 RUN npm run build
 
 ### Static server 2nd stage

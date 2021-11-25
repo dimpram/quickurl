@@ -97,11 +97,11 @@ const Panel = () => {
   }
 
   const handleSubmit = (event) => {
-    axios.post('https://quickurl.live/api/shorten', { // CHECK THIS IF IT NEEDS TO CHANGE
+    axios.post(process.env.REACT_APP_BASE_URL + '/api/shorten', { // CHECK THIS IF IT NEEDS TO CHANGE
       url: urlValue
     })
       .then((response) => {
-        setQuickurlValue("https://quickurl.live/r/" + response.data.shortId)
+        setQuickurlValue(process.env.REACT_APP_BASE_URL + "/r/" + response.data.shortId)
       })
       .catch((err) => {
         if (err.response) {
@@ -123,7 +123,7 @@ const Panel = () => {
       <Label><LinkIcon />Your URL</Label>
       <Input type="url" value={urlValue} onChange={handleChange} placeholder="https://www.example.com/an-example-page" pattern="https?://.*" required />
       <Label><RocketIcon />Your short URL</Label>
-      <Input type="url" value={quickurlValue} placeholder={"quickurl.live/r/xxxxxx"} readOnly={true} />
+      <Input type="url" value={quickurlValue} placeholder={process.env.REACT_APP_BASE_URL + "/r/xxxxxx"} readOnly={true} />
       <ButtonContainer>
         <ShortenButton type="submit" title="Shorten url">Shorten</ShortenButton>
         <CopyButton title="Copy to clipboard" onClick={copyToClipboard}><CopyIcon /></CopyButton>
