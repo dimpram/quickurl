@@ -42,4 +42,4 @@ make run-production
 
 ## License
 
-View License [here]()
+View License [here](https://github.com/dimpram/quickurl/blob/main/LICENSE.md)
