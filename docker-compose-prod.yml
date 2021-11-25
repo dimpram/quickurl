@@ -1,0 +1,49 @@
+version: "3"
+services:
+
+  # Frontend
+  react-app:
+    image: react-app-production:production
+    restart: unless-stopped
+    stdin_open: true # Don't exit the developer server
+    ports:
+      - "80:80"
+      - "443:443"
+    networks:
+      - mern-app
+    volumes:
+      - caddy-data:/data
+      - caddy-config:/config
+
+  # Backend
+  api-server:
+    image: api-server
+    restart: unless-stopped
+    ports:
+      - "5000:5000"
+    networks:
+      - mern-app
+    depends_on:
+      - mongo
+
+  # Database
+  mongo:
+    image: mongo:4.4-bionic
+    ports:
+      - "27017:27017"
+    networks:
+      - mern-app
+    volumes:
+      - mongo-data:/data/db # Default path where mongo stores its data
+
+networks:
+  mern-app:
+    driver: bridge
+
+volumes:
+  mongo-data:
+    driver: local
+  caddy-data:
+    driver: local
+  caddy-config:
+    driver: local

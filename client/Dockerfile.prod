@@ -1,0 +1,17 @@
+### First stage
+FROM node:16-alpine AS builder
+WORKDIR /usr/src/app
+COPY ./package.json ./
+RUN npm install
+COPY . . 
+ARG BASE_URL
+ENV REACT_APP_BASE_URL=${BASE_URL}
+RUN npm run build
+
+### Static server 2nd stage
+FROM caddy:2.1.1-alpine
+ARG CADDYFILE
+COPY ${CADDYFILE} /etc/caddy/Caddyfile
+COPY --from=builder /usr/src/app/build/ /srv
+EXPOSE 80
+EXPOSE 443

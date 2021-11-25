@@ -17,7 +17,7 @@ mongoose.connect(process.env.MONGO_DB_URI, { useNewUrlParser: true, useUnifiedTo
 
 // Routes
 app.use("/api", apiRouter, cors())
-app.use("/", redirectRouter, cors())
+app.use("/r", redirectRouter, cors())
 
 // Listening
 app.listen(process.env.PORT, () => {
