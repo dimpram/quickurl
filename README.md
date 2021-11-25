@@ -7,6 +7,24 @@ A Simple and easy to use url shortener made with React and expressjs.
 
 ## Getting started
 
+Before you do anything create the following files:
+
+`client/.env`
+
+```
+REACT_APP_BASE_URL=http//localhost:5000
+```
+
+and
+
+`server/.env`
+
+```
+MONGO_DB_URI=mongodb://mongo:27017/quickurl
+PORT=5000
+HOST=http://localhost
+```
+
 **Run for development**
 
 Make sure you have docker and docker-compose installed on your host machine and then run
